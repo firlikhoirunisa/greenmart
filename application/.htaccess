@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /greenmart/
+
+    # Redirect request yang tidak mengarah ke file atau folder
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Tambahkan index.php secara internal
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
